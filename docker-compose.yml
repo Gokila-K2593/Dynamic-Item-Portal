@@ -1,0 +1,42 @@
+services:
+
+  db:
+    image: postgres:15-alpine
+    container_name: dynamic_item_portal_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: goki
+      POSTGRES_DB: dit
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_BASE_URL: http://localhost:3000
+        NEXT_PUBLIC_SITE_URL: https://caesuric-unomnipotent-lucian.ngrok-free.dev
+    container_name: dynamic_item_portal_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://postgres:goki@db:5432/dit
+      JWT_SECRET: your-long-secret-key-change-this
+      NEXT_PUBLIC_BASE_URL: http://localhost:3000
+      NEXT_PUBLIC_SITE_URL: https://caesuric-unomnipotent-lucian.ngrok-free.dev
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
