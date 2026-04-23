@@ -2,7 +2,7 @@
 
 A modern, professional web application built with Next.js for managing dynamic items and generating corresponding QR codes for easy verification and viewing.
 
-##  Key Features
+## Key Features
 - **Admin Dashboard**: A sleek interface to manage and overview all registered items.
 - **Dynamic Configuration**: Create and edit items with custom sections and fields.
 - **QR Code Generation**: Automatically generates unique QR codes for every item.
@@ -10,7 +10,7 @@ A modern, professional web application built with Next.js for managing dynamic i
 - **Secure Authentication**: Protected admin routes using JWT (JSON Web Tokens).
 - **Dockerized Setup**: Fully containerized environment for consistent deployment.
 
-##  Tech Stack
+## Tech Stack
 - **Framework**: [Next.js 16 (App Router)]
 - **Database**: [PostgreSQL]
 - **ORM**: [Prisma]
@@ -19,14 +19,14 @@ A modern, professional web application built with Next.js for managing dynamic i
 - **QR Engine**: qrcode.react
 - **Deployment**: Docker & Docker Compose
 
-##  Installation & Local Setup
+## Installation & Local Setup
 
 ### Prerequisites
 - Node.js (v20+)
 - PostgreSQL (if running locally)
 - Docker & Docker Compose (recommended)
 
-###  Running with Docker (Recommended)
+### Running with Docker (Recommended)
 This is the easiest way to get the project running with the database included.
 
 1.  **Clone the repository**:
@@ -51,11 +51,19 @@ This is the easiest way to get the project running with the database included.
 
 4.  **Access the app**:
     - Portal: `http://localhost:3000`
-    - Login: `admin@example.com` / `admin123` (Initial seed user)
+    - Login: `admin@example.com` / `Admin@123` (Initial seed user)
 
 ---
 
-##  Public Testing (ngrok)
+## 🛠️ Database Management (Prisma)
+The project uses Prisma for database management. 
+- **Generate Client**: `npx prisma generate`
+- **Migration**: `npx prisma migrate dev`
+- **Seeding**: `npx prisma db seed` (Creates the initial admin user)
+
+---
+
+## 🌐 Public Testing (ngrok)
 Since QR codes are designed to be scanned by mobile devices, using `localhost` in the generated links will not work on external phones. We use **ngrok** to create a secure tunnel to our local server.
 
 - **Purpose**: Allows mobile devices to scan the QR codes and see the public view pages in real-time during development.
@@ -63,7 +71,7 @@ Since QR codes are designed to be scanned by mobile devices, using `localhost` i
 
 ---
 
-##  Packages Used
+## Packages Used
 | Package | Description |
 | :--- | :--- |
 | `next` | React framework for server-side rendering and routing. |
@@ -75,7 +83,7 @@ Since QR codes are designed to be scanned by mobile devices, using `localhost` i
 
 ---
 
-##  Project Architecture
+## Project Architecture
 ```text
 ├── app/               # Next.js App Router (Pages & API)
 │   ├── admin/         # Private Admin Dashboard & Item Management
@@ -91,7 +99,7 @@ Since QR codes are designed to be scanned by mobile devices, using `localhost` i
 
 ---
 
-##  Tamil Explanation (தமிழ் விளக்கம்)
+## Tamil Explanation (தமிழ் விளக்கம்)
 
 இந்த திட்டம் (Project) ஒரு **Dynamic Item Portal**. இதன் மூலம் நீங்கள் எந்த ஒரு பொருளுக்கும் (Item) ஒரு தனித்துவமான (Unique) QR Code-ஐ உருவாக்கலாம்.
 
