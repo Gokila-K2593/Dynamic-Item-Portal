@@ -115,6 +115,7 @@ export default function ScanPage() {
             </div>
           </div>
           <h1 className="text-3xl font-bold text-[#1e3a8a] tracking-tight mb-1">SCAN PRODUCT</h1>
+          <p className="text-slate-500 text-[13px] font-medium text-center">Instant Access to Authenticated Product Details</p>
         </div>
 
         {/* Search Card */}
