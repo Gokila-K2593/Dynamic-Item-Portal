@@ -8,6 +8,11 @@ RUN npm ci
 FROM node:20-alpine AS builder
 WORKDIR /app
 
+ARG NEXT_PUBLIC_BASE_URL=https://dynamic-item-portal.onrender.com
+ARG NEXT_PUBLIC_SITE_URL=https://dynamic-item-portal.onrender.com
+ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npx prisma generate
