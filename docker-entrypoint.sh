@@ -9,6 +9,7 @@ npx prisma db seed
 
 echo "Starting application..."
 # Bind to 0.0.0.0 to ensure the app is accessible within the container and on Render
+export HOSTNAME=0.0.0.0
 export HOST=0.0.0.0
 export PORT=3000
 
