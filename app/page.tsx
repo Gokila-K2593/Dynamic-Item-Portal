@@ -115,12 +115,11 @@ export default function ScanPage() {
             </div>
           </div>
           <h1 className="text-3xl font-bold text-[#1e3a8a] tracking-tight mb-1">SCAN PRODUCT</h1>
-          <p className="text-slate-500 text-sm font-medium text-center">Precision Search for Identity Management</p>
         </div>
 
         {/* Search Card */}
         <div className="bg-white rounded-3xl shadow-2xl shadow-blue-900/10 border border-slate-100 p-8 animate-in fade-in zoom-in-95 duration-500 delay-100">
-          <form onSubmit={handleSearch} className="space-y-6">
+          <form onSubmit={handleSearch} className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="searchId" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">
                 Enter User ID
@@ -148,7 +147,7 @@ export default function ScanPage() {
               {isLoading ? <Loader2 size={20} className="animate-spin" /> : 'Search'}
             </button>
 
-            <div className="relative flex items-center py-2">
+            <div className="relative flex items-center py-1">
               <div className="flex-grow border-t border-slate-100"></div>
               <span className="flex-shrink mx-4 text-slate-400 text-sm font-medium">— or —</span>
               <div className="flex-grow border-t border-slate-100"></div>
