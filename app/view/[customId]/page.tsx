@@ -92,27 +92,25 @@ export default async function PublicViewPage({ params }: Props) {
                             <div className="h-px w-full bg-slate-200/60"></div>
                         </div>
 
-                        {/* Responsive Grid: 1 col mobile, 2 col tablet, 3-4 col desktop */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                        {/* Detail Table Layout */}
+                        <div className="bg-white border border-slate-200 shadow-sm rounded-2xl overflow-hidden">
                             {section.fields.map((field: any, j: number) => (
                                 <div 
                                     key={j} 
-                                    className="group bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all duration-300"
+                                    className={`flex flex-col sm:flex-row py-4 px-6 hover:bg-slate-50 transition-colors ${
+                                        j !== section.fields.length - 1 ? 'border-b border-slate-100' : ''
+                                    }`}
                                 >
-                                    <div className="flex justify-between items-start mb-4">
-                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest group-hover:text-blue-500 transition-colors">
+                                    <div className="w-full sm:w-1/3 shrink-0 sm:py-1 pr-4 mb-1 sm:mb-0">
+                                        <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
                                             {field.label}
                                         </p>
-                                        <div className="p-1.5 bg-slate-50 rounded-lg text-slate-300 group-hover:text-blue-400 group-hover:bg-blue-50 transition-all">
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                            </svg>
-                                        </div>
                                     </div>
-                                    <p className="text-xl font-bold text-slate-900 break-words line-clamp-2">
-                                        {field.value}
-                                    </p>
+                                    <div className="w-full sm:w-2/3 sm:py-1">
+                                        <p className="text-base font-bold text-slate-900 break-words whitespace-pre-wrap">
+                                            {field.value}
+                                        </p>
+                                    </div>
                                 </div>
                             ))}
                         </div>

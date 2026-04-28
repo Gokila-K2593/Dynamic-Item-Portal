@@ -123,7 +123,7 @@ export default function ScanPage() {
           <form onSubmit={handleSearch} className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="searchId" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">
-                Enter User ID
+                Enter Product ID
               </label>
               <div className="relative group">
                 <input
