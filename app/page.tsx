@@ -43,6 +43,10 @@ export default function ScanPage() {
     setIsScanning(true)
     setError('')
     
+    setTimeout(() => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+    }, 100)
+
     setTimeout(async () => {
       try {
         const html5QrCode = new Html5Qrcode("reader")
@@ -131,7 +135,10 @@ export default function ScanPage() {
                   type="text"
                   placeholder="e.g. ID-8829-001"
                   value={searchId}
-                  onChange={(e) => setSearchId(e.target.value)}
+                  onChange={(e) => {
+                    setSearchId(e.target.value)
+                    if (error) setError('')
+                  }}
                   className="w-full h-14 pl-5 pr-12 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-slate-700 font-medium"
                 />
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors">
@@ -195,7 +202,7 @@ export default function ScanPage() {
           </form>
         </div>
 
-        <div className="mt-12 text-center animate-in fade-in duration-1000 delay-300">
+        <div className="mt-6 text-center animate-in fade-in duration-1000 delay-300">
           <p className="text-slate-400 text-sm">
             Admin access? <button onClick={() => router.push('/login')} className="text-blue-600 font-semibold hover:underline">Log in here</button>
           </p>

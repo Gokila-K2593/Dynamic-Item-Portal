@@ -37,7 +37,7 @@ export default async function PublicViewPage({ params }: Props) {
             {/* Premium Header */}
             <header className="bg-white border-b border-slate-200 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
-                <div className="max-w-6xl mx-auto px-6 py-10 md:py-14">
+                <div className="max-w-6xl mx-auto px-6 py-6 md:py-8">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
                         <div className="space-y-6">
                             <div className="flex items-center gap-3">
@@ -48,11 +48,11 @@ export default async function PublicViewPage({ params }: Props) {
                                     Digital Product Verification
                                 </p>
                             </div>
-                            
+
                             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-none">
                                 {item.name}
                             </h1>
-                            
+
                             <div className="flex flex-col gap-2">
                                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] pl-0.5">Custom ID</p>
                                 <div className="inline-flex items-center self-start px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl shadow-sm">
@@ -62,7 +62,7 @@ export default async function PublicViewPage({ params }: Props) {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="hidden md:block">
                             <div className="p-4 bg-blue-50/50 rounded-2xl border border-blue-100 flex items-center gap-4">
                                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600">
@@ -81,11 +81,11 @@ export default async function PublicViewPage({ params }: Props) {
                 </div>
             </header>
 
-            <main className="max-w-6xl mx-auto px-6 mt-12">
+            <main className="max-w-6xl mx-auto px-6 mt-8">
                 {item.sections.map((section: any, i: number) => (
-                    <section key={i} className="mb-16">
+                    <section key={i} className="mb-10">
                         {/* Section Header */}
-                        <div className="flex items-center gap-4 mb-8">
+                        <div className="flex items-center gap-4 mb-5">
                             <h2 className="text-xs font-black tracking-[0.3em] text-slate-400 uppercase whitespace-nowrap">
                                 {section.heading || 'Specifications'}
                             </h2>
@@ -95,19 +95,18 @@ export default async function PublicViewPage({ params }: Props) {
                         {/* Detail Table Layout */}
                         <div className="bg-white border border-slate-200 shadow-sm rounded-2xl overflow-hidden">
                             {section.fields.map((field: any, j: number) => (
-                                <div 
-                                    key={j} 
-                                    className={`flex flex-col sm:flex-row py-4 px-6 hover:bg-slate-50 transition-colors ${
-                                        j !== section.fields.length - 1 ? 'border-b border-slate-100' : ''
-                                    }`}
+                                <div
+                                    key={j}
+                                    className={`flex flex-col sm:flex-row py-3 px-5 hover:bg-slate-50 transition-colors ${j !== section.fields.length - 1 ? 'border-b border-slate-100' : ''
+                                        }`}
                                 >
-                                    <div className="w-full sm:w-1/3 shrink-0 sm:py-1 pr-4 mb-1 sm:mb-0">
+                                    <div className="w-full sm:w-1/3 shrink-0 sm:py-0.5 pr-4 mb-1 sm:mb-0">
                                         <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
                                             {field.label}
                                         </p>
                                     </div>
-                                    <div className="w-full sm:w-2/3 sm:py-1">
-                                        <p className="text-base font-bold text-slate-900 break-words whitespace-pre-wrap">
+                                    <div className="w-full sm:w-2/3 sm:py-0.5">
+                                        <p className="text-sm font-bold text-slate-900 break-words whitespace-pre-wrap">
                                             {field.value}
                                         </p>
                                     </div>
@@ -118,7 +117,7 @@ export default async function PublicViewPage({ params }: Props) {
                 ))}
 
                 {/* Footer simple branding */}
-                <footer className="mt-20 pt-10 border-t border-slate-100 text-center">
+                <footer className="mt-12 pt-6 border-t border-slate-100 text-center">
                     <p className="text-[10px] font-bold tracking-[0.4em] text-slate-300 uppercase">
                         Dynamic Item Portal &copy; {new Date().getFullYear()}
                     </p>
